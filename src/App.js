@@ -12,13 +12,14 @@ function App() {
   function reducer(state, action) {
     switch (action.type) {
       case "add":
-        return [...initialState, action.payload];
+        return [...state, action.payload];
 
       case "delete":
         return state.filter(contact => {
           return contact.id !== action.payload.id;
         });
 
+      // eslint-disable-next-line no-fallthrough
       default:
         throw new Error();
     }
